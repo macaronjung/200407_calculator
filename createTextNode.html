@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>createTextNode</title>
+
+  <script>
+    function addTextNode() {
+      var newText = document.createTextNode("동적으로 추가되는 텍스트");
+      var para = document.getElementById("p1");
+      para.appendChild(newText);
+    }
+  </script>
+</head>
+<body>
+  <div style="border: 1px solid gold;">
+    <p id="p1">단락의 첫번째 줄<br/></p>
+  </div><br/>
+
+  <button onclick="addTextNode();">TextNode 추가하기</button>
+</body>
+</html>
