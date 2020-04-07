@@ -1,5 +1,6 @@
 
 var formulaInput = document.getElementById("formula-input");
+var calcHistDiv = document.getElementById("calc-history");
 
 // 키보드 입력값이 Enter 인지 확인
 formulaInput.addEventListener("keyup", function(e) {
@@ -7,13 +8,12 @@ formulaInput.addEventListener("keyup", function(e) {
     calculate; /* 맞으면 calulate 함수 실행 */
 });
 
-function calculate () {
+function calculate () { /* {} 열고 닫는거 확인 할 것!!! */
 
   // 입력칸의 문자열이 사칙연산 형식이 맞는지 확인
-  var fm = formulaInput.nodeValue;
+  var fm = formulaInput.value;
   var fomulaRegex = /^\d+(.\d+)?[+\-*/]{1}\d+(.\d+)?$/;
   var fomulaValid = formulaRegex.test(fm);
-}
 
 var resultText = "no";
 if (fomulaValid) {
@@ -21,9 +21,7 @@ if (fomulaValid) {
   var answer;
   eval('answer=' + fm);
   resultText = fm + " = ";
-  resultText += (
-    answer % 1 > 0 ? answer.toFixed(2) : answer.toString()
-  );
+  resultText += ( answer % 1 > 0 ? answer.toFixed(2) : answer.toString());
 }
 
 // calc-history 상자에 넣을 또 다른 상자를 생성하고 내용을 설정한 뒤 삽입
@@ -45,3 +43,5 @@ calcHistDiv.insertBefore(resultDiv, calcHistDiv.firstChild);
 
 // 입력칸을 빈칸으로 설정
   formulaInput.value = "";
+
+} /* {} 열고 닫는거 확인 할 것!!! */
